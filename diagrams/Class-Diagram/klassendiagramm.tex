@@ -1,0 +1,1301 @@
+\documentclass[border=4mm,tikz]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{tikz-uml}
+
+\begin{document}
+%\begin{figure}
+\begin{tikzpicture}
+
+
+\umlclass[ x=24, y=28, type = Interface] {Comparable<PlenaryObject>}{}{}
+\umlclass[ x=72, y=28, type = interface] {Comparable<Faction>}{}{}
+\umlclass[ x=82, y=28, type = interface] {Comparable<Partei>}{}{}
+
+
+
+
+
+\begin{umlpackage}{ParliamentBrowser\string_3\string_4}
+        
+    \begin{umlpackage}{data}
+
+
+
+    \umlclass[x=24, y=24, type=interface]{PlenaryObject}
+    {}
+    {
+        + getID() : String \\
+        + setID(id : String) \\
+        + getFactory() : Factory
+    }
+
+  \umlinherit{PlenaryObject}{Comparable<PlenaryObject>}
+
+
+
+   
+    \umlclass[x=-24, y=8, type=interface]{Factory}
+    {}
+    {
+   	  + getSpeeches() : Set<Speech> \\
+	  + getSpeeches(legislaturPeriod : int) : Set<Speech> \\
+	  + getSpeeches(protocol : Protocol) : Set<Speech> \\
+	  + getProtocolsInPeriod(period : int) : Set<Protocol> \\
+	  + getSpeakers() : Set<Speaker>\\
+        + getSpeakers(pFaction : Faction) : Set<Speaker>\\
+	  + getProtocols() : Set<Protocol> \\
+	  + getProtocols(lp : int) : Set<Protocol> \\
+        + addProtocol(pProtocol : Protocol) : void \\ 
+   	  + getFactions() : Set<Faction> \\
+        + getParties() : Set<Party> \\
+        + getParty(sName : String) : Party \\
+        + getSpeaker(sName : String) : Speaker \\       
+        + addSpeaker(pSpeaker : Speaker) : void \\
+        + getSpeaker(sNode : Node) : Speaker \\
+        + getFaction(sName : String) : Faction \\
+ 	  + getFaction(pNode : Node) : Faction \\        
+     }
+    
+    \umlinherit[anchor1=90, anchor2=180, geometry=|-]{Factory}{PlenaryObject}
+
+    \umlclass[x=-11, y=8, type=interface]{Protocol}
+    {}
+    {
+   	  + getDuration() : long \\
+	  + setDuration() : void \\
+	  + getDate() : Date \\
+        + setDate(pDate : Date) : void \\
+	  + getDateFormatted() : String \\
+        + getBegin() : Time \\
+	  + getBeginFormatted() : String \\
+        + setBegin(value : Time) : void \\
+        + getEnd() : Time \\
+	  + getEndFormatted() : String \\
+        + setEnd(value : Time) : void \\
+        + getLegislaturPeriode() : int \\
+        + setLegislaturPeriode(value : int) : void \\
+        + getNum() : int \\
+        + setNum(value : int) : void \\
+        + getTitle() : String \\
+        + setTitle(value : String) : void \\
+        + getDayTopicList() : List<DayTopic> \\
+        + addDayTopic(value : DayTopic) : void \\
+        + setDayTopicList(value : List<DayTopic> ) : void \\
+        + getSpeakers() : Set<Speaker> \\
+        + addSpeaker(value : Speaker) : void \\
+        + addSpeakers(value : Set<Speaker>) : void \\
+        + getPlace() : String \\
+        + setPlace(value : String) : void \\
+        + toDocument() : Document \\       
+     }
+                                     
+    \umlinherit[anchor1=90, anchor2=180, geometry=|-]{Protocol}{PlenaryObject}
+
+
+    \umlclass[x=1, y=8, type=interface]{Parliament}
+    {}
+    {
+   	  + getFactory() : Factory \\        
+        + getProtocols() : List<Protocol>  \\
+        + addProtocol(value : Protocol) : void \\
+        + addProtocols(value :  List<Protocol>) : void \\            
+                    
+    }    
+    \umlassoc{Protocol}{Parliament}
+
+  
+
+
+
+    \umlclass[x=12, y=8, type=interface]{DayTopic}
+    {}
+    {
+   	  + getName() : String \\
+        + setName(value : String) : void \\
+        + getTitle() : String \\
+        + setTitle(title : String) : void \\
+        + getProtocol() : Protocol  \\
+        + setProtocol(value : Protocol) : void \\
+        + getSpeechList() : List<Speech>\\
+        + addSpeech(value : Speech) : void \\
+        + addSpeeches(value :  List<Speech) : void \\            
+        + getFactory() : Factory \\
+        + toDocument() : Document \\              
+    }
+    \umlinherit[anchor1=90, anchor2=180, geometry=|-]{DayTopic}{PlenaryObject}
+   \umlassoc{DayTopic}{Parliament}
+    
+        
+            
+         
+
+    \umlclass[x=24, y=8, type=interface]{Speech}
+    {}
+    {   
+   	  + getText() : String \\
+	  + getTextWithComments() : String \\
+	  + setText(value : String) : void \\		
+	  + getSpeaker() : Speaker \\
+	  + setSpeaker(value : Speaker) : void \\
+	  + setDayTopic(value : DayTopic) : void \\
+        + getDayTopic() : DayTopic \\
+        + getProtocol() : Protocol  \\
+        + setProtocol(value : Protocol) : void \\
+	  + getComments() : List<Comment> \\
+        + addComment(value : Comment) : void \\
+        + addComments(value : List<Comment>) : void \\
+        + toDocumentNoNLP() : Document \\ 
+        + toDocumentNLP() : Document \\   
+        + toJCas() : JCas  \\ 
+        + setJCas(jCas : JCas) : void  \\ 
+           
+    }
+    
+    \umlinherit[anchor1=90, anchor2=270, geometry=|-]{Speech}{PlenaryObject}
+    
+    
+
+    \umlclass[x=36, y=8, type=interface]{Comment}
+    {}
+    {    
+	   + findCommentator(partySet:Set<Party>, \\
+	   \qquad\quad speakerSet:Set<Speaker>):String \\
+	   + setIndex(index : int) : void \\
+	   + setIndex(speechText : String) : void \\
+         + getIndex() : int \\
+	   + setSpeech(speech : Speech) : void \\
+        + getSpeech() : Speech  \\
+        + setContent(value : String) : void\\
+        + getContent() : String \\
+        + getFactory() : Factory \\
+        + getID() : String \\
+        + setID(value : String) : void\\
+	   + toDocumentNoNLP() : Document \\ 
+        + toDocumentNLP() : Document \\   
+        + toJCas() : JCas  \\ 
+        + setJCas(jCas : JCas) : void  \\           
+    }
+    \umlinherit[anchor1=90, anchor2=0, geometry=|-]{Comment}{PlenaryObject}
+
+    
+
+    \umlclass[x=48, y=8, type=interface]{Speaker}
+    {}
+    {
+        + getParty() : Party\\
+        + setParty() : void \\
+        + setParty(party : Party) : void \\
+        + getFaction() : Faction\\
+        + setFaction(value : Faction) : void \\
+	   + getSpeeches() : List<Speech> \\
+         + addSpeeches(value : List<Speech>) : void \\
+         + addSpeech(value : Speech) : void \\
+         + getName() : String \\
+        + setName(value : String) : void\\
+        + getFirstName() : String \\        
+        + setFirstName(value : String) : void\\
+        + getMiddleName() : String \\        
+        + setMiddleName(value : String) \\
+        + getLastName() : String \\
+        + setLastName(value : String) : void\\
+        + getRole() : String   \\
+        + setRole(value : String) : void \\
+        + getTitle() : String   \\
+        + setTitle(value : String) : void \\
+        + isLeader() : boolean   \\
+	  + isGovernment() : boolean   \\
+	  + toDocument() : Document \\            
+    }
+    \umlinherit[anchor1=90, anchor2=0, geometry=|-]{Speaker}{PlenaryObject}
+
+    \umlclass[x=60, y=8, type=interface]{Member}
+    {}
+    {
+      + getParty() : Party \\
+	+ setParty(party : Party) : void \\
+      + getName() : String \\
+   	 + getFirstName() : String \\        
+       + setFirstName(value : String) : void\\
+ 	 + getLastName() : String \\
+       + setLastName(value : String) : void\\
+   	 + getTitle() : String   \\
+       + setTitle(value : String) : void \\
+	 + getBirthDate() : Date \\
+       + setBirthDate(value : Date) : void\\
+       + getBirthDateFormatted() : String \\
+       + getDeathDate() : Date \\
+       + setDeathDate(value : Date) : void\\
+       + getDeathDateFormatted() : String \\
+	 + getBirthPlace() : String \\
+       + setBirthPlace(value : String) : void\\
+       + getBirthLand() : String \\
+       + setBirthLand(value : String) : void\\
+  	  + getSex() : String \\
+	  + setSex(value : String) : void \\
+	  + getFamilyStatus() : String \\
+	  + setFamilyStatus(value : String) : void \\
+        + getProfession() : String \\
+	  + setProfession(value : String) : void \\
+        + getVita() : String \\
+	  + setVita(value : String) : void \\ 
+        + toDocument() : Document \\        
+      }
+    \umlinherit{Member}{Speaker}
+
+       
+
+    \umlclass[x=72, y=7, type=interface]{Faction}
+    {}
+    {
+        + getName() : String \\
+        + setName(value : String) : void\\              
+        + addMember(pSpeaker : Speaker) : void \\
+        + addMembers(pSpeaker : Set<Speaker>) : void \\   
+        + getMembers() : Set<Speaker> \\
+        + toDocument() : Document \\         
+    }
+
+    \umlclass[x=82, y=7, type=interface]{Party}
+    {
+    }
+    {
+       + getName() : String \\
+        + setName(value : String) : void\\   
+        + getMembers() : Set<Speaker> \\           
+        + addMember(pMember : Speaker) : void \\
+        + addMembers(pSet : Set<Speaker>) : void \\   
+        + toDocument() : Document \\  
+    }
+
+    \umlaggreg[arg1=has >, mult1=1, anchor1=0, arg2=< is part of, mult2=1..*, anchor2=180, arm1=2cm, arm2=2cm]{Factory}{Protocol}
+    \umlaggreg[arg1=has >, mult1=1, anchor1=60, arg2=< is part of, mult2=1..*, anchor2=120, geometry=|-|, arm1=3cm, arm2=3cm, pos2=2.9]{Factory}{Member}
+    
+    \umlaggreg[arg1=has >, mult1=1, anchor1=90, arg2=< is part of, mult2=1..*, anchor2=140, geometry=|-|, arm1=1cm, arm2=1cm, pos2=2.8]{Protocol}{DayTopic}
+    
+
+    \umlaggreg[arg1=has >, mult1=1, anchor1=0, arg2=< is part of, mult2=1..*, anchor2=180, arm1=2cm, arm2=2cm]{DayTopic}{Speech}
+    
+    \umlaggreg[arg1=has >, mult1=1, anchor1=40, arg2=< is part of, mult2=1..*, anchor2=140, geometry=|-|, arm1=2cm, arm2=2cm, pos2=2.8]{DayTopic}{Comment}
+    \umlaggreg[arg1=has >, mult1=1, anchor1=0, arg2=< is part of, mult2=1..*, anchor2=180, arm1=2cm, arm2=2cm]{Speech}{Comment}
+
+       
+    \umlassoc[arg1=is by >, mult1=0..*, anchor1=-40, arg2=< holds, mult2=1, anchor2=-130, geometry=|-|, arm1=-2cm, arm2=-2cm, pos2=2.4]{Speech}{Member}
+    \umluniassoc[arg1=relates to >, mult2=1..*, anchor1=-30, anchor2=-130, geometry=|-|, arm1=-1.5cm, arm2=-1.5cm, pos2=2.8]{Faction}{Party}
+      
+
+    \umlinherit{Faction}{Comparable<Faction>}
+    \umlinherit{Party}{Comparable<Partei>}
+ 
+ 
+ 
+    
+    
+ \begin{umlpackage}{file\string_impl}
+        
+           
+        
+        \umlclass[x=-24, y=-4, type=class]{Factory\string_File\string_Impl}
+        {
+            - pSpeaker : Set<Speaker> \\
+            - pProtocols : Set<Protocol> \\
+            - pFactions : Set<Faction> \\
+            - pParties : Set<Party> \\
+            - partyDoc : Document \\
+           
+        }
+        {
+            + Factory\string_File\string_Impl(pathToPar : String ) \\
+            + Factory\string_File\string_Impl() \\
+            + getPartyDoc() : Document   \\
+        	 + setParty(pName : String) : Party \\
+            + getSpeaker(sID : String) : Speaker  \\
+                                     
+        }
+        \umlinherit{Factory\string_File\string_Impl}{Factory}
+
+
+
+
+
+        \umlclass[x=-11, y=-4, type=class]{Protocol\string_File\string_Impl}
+        {
+            - document : Document\\
+            - dayTopicList :  List<dayTopic> \\
+            - place : String \\
+            - beginn : Time \\
+            - end : Time \\
+            - date : Date \\
+            - num: int \\
+            - legislaturePeriode : int \\           
+            - title : String \\
+            - duration : long\\            
+            - speakerSet : Set<Speaker> \\
+            - dateFormat : SimpleDateFormat \\
+            - timeFormat : SimpleDateFormat \\
+            
+        }
+        {
+            + Protocol\string_File\string_Impl(factory:Factory, dPro:Document) \\
+            + Protocol\string_File\string_Impl()  \\
+            - init() : void  \\
+            + getDocument() : Document \\
+            + getNodeFromXML() : Node \\
+            + toString() : String\\
+            + equals(o : Object) : boolean\\
+            + hashcode(): int\\
+            + compareTo(pO : PlenaryObject) : int\\             
+        }       
+        \umlinherit{Protocol\string_File\string_Impl}{Protocol}
+
+
+
+
+
+ \umlclass[x=1, y=-1, type=class]{Parliament\string_File\string_Imp}
+    {  - protocolList : List<Protocol> \\
+    	 - factory : Factory
+    }
+    {
+   	  + Parliament\string_File\string_Impl(pathToParty : String) \\                                
+    }    
+    \umlassoc{Parliament\string_File\string_Imp}{Parliament}
+
+
+
+
+
+
+
+
+ \umlclass[x=1, y=-7, type=class]{PlenaryObject\string_File\string_Impl}
+    {
+        - ID : String\\
+        - factory : Factory
+    }
+    {
+            + PlenaryObject\string_File\string_Impl() \\
+            + PlenaryObject\string_File\string_Impl(factory : Factory)\\
+            + compareTo( o : PlenaryObject) : int\\
+	      + equals(o : Object) : boolean\\
+            + hashcode(): int\\            
+    }
+
+  \umlinherit[anchor1=90, anchor2=0, geometry=|-]{PlenaryObject\string_File\string_Impl}{PlenaryObject}
+
+
+
+
+
+
+        \umlclass[x=12, y=-4, type=class]{DayTopic\string_File\string_Impl}
+        {
+            - name : String \\
+            - title : String \\
+            - protocol : Protocol
+            - speechList : List<Speech> \\
+            - dayTopicNode : Node        
+        }
+        {
+            + DayTopic\string_File\string_Impl(protocol : Protocol, node : Node, num:int) \\
+            + DayTopic\string_File\string_Impl()\\
+            - init() : void  \\
+        }                    
+        \umlinherit{DayTopic\string_File\string_Impl}{DayTopic}
+
+
+
+
+
+        
+        \umlclass[x=24, y=-4, type=class]{Speech\string_File\string_Impl}
+        {
+            - speechNode : Node\\
+            - text : String \\
+            - speaker : Speaker \\
+            - protocol : Protocol \\
+            - dayTopic : DayTopic \\
+            - textWithComments : String \\
+            - insertions : List<Speech> \\
+            - comments : List<Comment> \\
+            
+        }
+        {
+        	+ Speech\string_File\string_Impl()\\
+            + Speech\string_File\string_Impl(dayTopic:DayTopic, node:Node) \\
+            + Speech\string_File\string_Impl(dayTopic:DayTopic, sID:String) \\
+            - init(pNode : Node) : void  \\
+        }
+        \umlimpl{Speech\string_File\string_Impl}{Speech}
+
+
+
+
+
+
+
+
+        \umlclass[x=36, y=-4, type=class]{Comment\string_File\string_Impl}
+        {
+            - content : String \\
+            - speech : Speech \\
+            - ID : String \\          
+            - index : int
+        }
+        {
+      	 + Comment\string_File\string_Impl()\\
+            + Comment\string_File\string_Impl(n : Node, speech : Speech)\\    
+        }
+        \umlimpl{Comment\string_File\string_Impl}{Comment}
+
+
+
+
+
+
+
+        \umlclass[x=48, y=-4, type=class]{Speaker\string_File\string_Impl}
+        {
+            - name : String\\
+            - firstName : String \\
+            - middleName : String \\
+            - lastName : String \\
+            - role : String \\
+            - title : String \\
+            - faction : Faction \\
+            - party : Party \\
+        }
+        {
+      	 + Speaker\string_File\string_Impl() \\
+            + Speaker\string_File\string_Impl(pFactory : Factory) \\
+            - init(pNode : Node) : void  \\
+        }
+        \umlimpl{Speaker\string_File\string_Impl}{Speaker}
+        
+
+        \umlclass[x=60, y=-4, type=class]{Member\string_File\string_Impl}
+        {
+            - birthPlace : String\\
+            - birthLand : String \\
+            - sex : String \\
+            - familyStatus : String \\
+            - profession : String \\
+            - vita : String \\
+            - birthDate : Date \\
+            - deathDate : Date \\
+            - dateFormat : SimpleDateFormat \\
+        }
+        {
+            + Member\string_File\string_Impl() \\
+            + Member\string_File\string_Impl(pFactory:Factory, pNode:Node) \\
+            - initialize(pNode : Node) : void  \\
+        }
+        \umlimpl{Member\string_File\string_Impl}{Member}
+       
+
+
+
+
+
+        \umlclass[x=72, y=-4, type=class]{Faction\string_File\string_Impl}
+        {
+            - sName : String \\           
+            - pMembers : Set<Speaker> \\
+         }
+        {
+            + Faction\string_File\string_Impl() \\
+  	      + Faction\string_File\string_Impl(pNode : Node) \\
+	      + compareTo(faction : Faction) : int\\
+	      + equals(o : Object) : boolean\\
+            + hashcode(): int\\             
+            + toString() : String\\  
+        }
+        \umlimpl[geometry=|-|, arm1=4cm]{Faction\string_File\string_Impl}{Faction}
+      
+      
+      
+      
+      
+                
+        \umlclass[x=82, y=-4, type=class]{Party\string_File\string_Impl}
+        {          
+            - sName : String \\
+            - pMembers : Set<Speaker> \\
+        }
+        {
+            + Party\string_File\string_Impl() \\
+            + Party\string_File\string_Impl(sName : String)\\
+            + compareTo(party : Party) : int\\
+	      + equals(o : Object) : boolean\\
+            + hashcode(): int\\             
+            + toString() : String\\  
+        }
+        \umlimpl{Party\string_File\string_Impl}{Party}
+
+
+
+
+
+
+
+
+
+
+        \end{umlpackage}
+
+
+        \begin{umlpackage}{mongodb\string_impl}
+        
+            \umlclass[x=-24, y=-16, type=class]{Factory\string_MongoDB\string_Impl}
+            {
+            - db : MongoDatabase\\
+            - protocols : List<Protocol>\\
+            - protocolDocuments :  List<Document>\\
+            - speakers : Map<String, Speaker>\\
+            - parties : Map<String, Party>\\
+		 - speeches : Map<String, Speech>\\
+            }
+            {
+                + Factory\string_MongoDB\string_Impl() \\
+                + getProtocolDocuments() : List<Document>\\
+                +  getSpeakers() : Map<String, Speaker> \\
+                +  getParty() : Map<String, Party>\\
+                +  getSpeeches() : Map<String, Speech> \\                             
+            }
+           
+      
+    
+    
+            \umlclass[x=-11, y=-16, type=class]{Protocol\string_MongoDB\string_Impl}
+            {
+             }
+            {
+                + Protocol\string_MongoDB\string_Impl(doc:Document, speakerMap:Map<String, Speaker>) \\               
+            }          
+            \umlinherit{Protocol\string_MongoDB\string_Impl}{Protocol\string_File\string_Impl}
+  
+  
+  
+  
+  
+    
+            \umlclass[x=12, y=-16, type=class]{DayTopic\string_MongoDB\string_Impl}
+            {
+             }
+            {
+			+ DayTopic\string_MongoDB\string_Impl(doc:Document, speakerMap:Map<String, Speaker>)\\              
+            }
+           
+           \umlinherit{DayTopic\string_MongoDB\string_Impl}{DayTopic\string_File\string_Impl}
+    
+    
+    
+    
+    
+    
+    
+                        \umlclass[x=24, y=-16, type=class]{Speech\string_MongoDB\string_Impl}
+            {
+                - doc : Document \\
+                - jCas : JCas \\
+                - namedEntity : List<NamedEntity> \\
+                - posTags : List<POS>\\
+                - lemmas : List<Lemma> \\
+                - tokens : List<Token> \\
+                - sentiments : List<Sentiment> \\
+                - sentences : List<Sentence> 
+            }
+            {
+                + Speech\string_MongoDB\string_Impl \\(doc:Document, speakerMap: Map<String, Speaker>)\\
+                + Speech\string_MongoDB\string_Impl(doc : Document)\\
+                + toStringList(annoList:List<Annotation>) : List<String> \\
+                + getDoc() : Document \\                
+                + setDoc(doc : Document ) : void
+                + getJCas() : JCas \\
+                + getNamedEntities() : List<NamedEntity> \\
+                + getTokens() : List<Token> \\
+                + getPOS() : List<POS> \\
+                + getSentiments() : List<Sentiment> \\
+                + getDocumentSentiment() : Sentiment \\
+                + getLemmas() : List<Lemma> \\
+  		     + getSentences() : List<Sentence> \\
+            }
+                        \umlinherit{Speech\string_MongoDB\string_Impl}{Speech\string_File\string_Impl}
+    
+    
+    
+    
+    
+    
+    
+    
+            \umlclass[x=36, y=-16, type=class]{Comment\string_MongoDB\string_Impl}
+            {
+                - doc : Document \\
+                - jCas : JCas \\
+                - namedEntity : List<NamedEntity> \\
+                - posTags : List<POS>\\
+                - lemmas : List<Lemma> \\
+                - tokens : List<Token> \\
+                - sentiments : List<Sentiment> \\
+                - sentences : List<Sentence>             }
+            {
+                + Comment\string_MongoDB\string_Impl(doc : Document)\\  
+                + toStringList(annoList:List<Annotation>) : List<String> \\
+                + getDoc() : Document \\                
+                + setDoc(doc : Document ) : void
+                + getJCas() : JCas \\
+                + getNamedEntities() : List<NamedEntity> \\
+                + getTokens() : List<Token> \\
+                + getPOS() : List<POS> \\
+                + getSentiments() : List<Sentiment> \\
+                + getDocumentSentiment() : Sentiment \\
+                + getLemmas() : List<Lemma> \\
+  		     + getSentences() : List<Sentence> \\           
+            }
+                        \umlinherit{Comment\string_MongoDB\string_Impl}{Comment\string_File\string_Impl}
+
+
+
+
+
+    
+            \umlclass[x=48, y=-16, type=class]{Speaker\string_MongoDB\string_Impl}
+            {
+            }
+            {
+       + Speaker\string_MongoDB\string_Impl(doc:Document, p:Map<String, Party>, \\ 
+       \qquad\qquad\qquad f:Map<String, Faction>) \\
+        + Speaker\string_MongoDB\string_Impl(doc:Document, p:Map<String, Party>) \\
+              
+            }
+                \umlinherit{Speaker\string_MongoDB\string_Impl}{Speaker\string_File\string_Impl}
+
+
+
+
+
+
+
+
+            \umlclass[x=60, y=-16, type=class]{Member\string_MongoDB\string_Impl}
+            {
+            }
+            {
+                + Member\string_MongoDB\string_Impl( doc : Document, \\  \qquad\qquad partyMap : Map<String, Party>)
+            }
+     \umlinherit{Member\string_MongoDB\string_Impl}{Member\string_File\string_Impl}
+    
+    
+    
+    
+    
+    
+    
+    
+            \umlclass[x=72, y=-16, type=class]{Faction\string_MongoDB\string_Impl}
+            {
+            }
+            {
+                + Faction\string_MongoDB\string_Impl( doc : Document)\\
+                + Faction\string_MongoDB\string_Impl( doc : Document, \\  \qquad\qquad  speakerMap : Map<String, Speaker>)
+          }
+      \umlinherit{Faction\string_MongoDB\string_Impl}{Faction\string_File\string_Impl}
+            
+            
+     
+     
+     
+     
+     
+            
+            \umlclass[x=82, y=-16, type=class]{Party\string_MongoDB\string_Impl}
+            {
+            }
+            {
+         + Party\string_MongoDB\string_Impl( doc : Document)\\
+         + Party\string_MongoDB\string_Impl( doc : Document, \\  \qquad\qquad speakerMap : Map<String, Speaker>)
+            }
+   \umlinherit{Party\string_MongoDB\string_Impl}{Party\string_File\string_Impl}
+    
+    
+        \end{umlpackage}     %mongo
+
+    \end{umlpackage}         %data
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+    \begin{umlpackage}[x=-13, y=-30]{helper}
+        \umlclass[type=class]{XMLHelper}
+        {
+        }
+        {
+            + getNodesFromXML(pNode : Node, sNodeName:String) : List<Node> \\
+            + getSingleNodesFromXML(pNode : Node, sNodeName:String) : Node 
+        }
+
+
+        \umlclass[type=class, y=-4]{MembersDataHandler}
+        {
+            -  document : Document \\
+            -  factory : Factory \\
+            -  membersSet : Set<Member>             
+        }
+        {
+            +  MembersDataHandler(pathMembers : String)    \\
+            +  initMembersList() : void \\   
+            +  getFactory() : Factory \\
+            +  getMembers() : Set<Member> \\
+            +  addMember(Member pMember) : void 
+        }
+
+        \umlclass[type=class, y=-8]{DDCLoader}
+        {
+            - ddcs : HashMap<Integer, String>
+        }
+        {
+            + DDCLoader() \\
+            + loadDDCfromCSV(file : File) : void \\
+            + getDDCs() : HashMap<Integer, String>
+        }
+
+    \end{umlpackage}
+
+
+
+
+
+
+
+  \begin{umlpackage}[x=-24, y=-47]{exceptions}
+        \umlclass[x=0, y=0, type=class]{InputException}
+        {}
+        {
+       	 + InputException(errorMessage : String) : void \\
+       	 + InputException(errorMessage : String) : void           
+        }
+        \umlclass[x=10, y=0, type=class]{PropertiesException}
+        {}
+        {
+            + PropertiesException(errorMsg : String) : void
+        }
+            \end{umlpackage}
+
+
+
+
+
+
+\begin{umlpackage}[x=-23, y=-55]{latex}
+
+  \begin{umlpackage}[x=30]{template}
+
+
+
+\umlclass[type=interface]{LatexTemplate}
+ {} 
+ {
+ + getLatexOutput() : String \\
+ + createLatexOutput() : void \\
+\umlstatic{+ getTemplate() : String }\\
+ \umlstatic{+ updateTemplate(string : String) : void }
+ }
+ 
+  
+\umlclass[ x=-8, type=class]{ProtocolLatexTemplate}
+ { 
+ - protocolSource : Protocol \\
+ - outputLatex : StringBuilder \\
+ \umlstatic{- outputTemplate : StringBuilder }\\  
+ }
+  { 
+  + ProtocolLatexTemplate() \\
+  + ProtocolLatexTemplate(protocol : Protocol) \\
+  \umlstatic{- initTemplate() : void }\\
+  + createLatexOutput() : void \\
+  + getLatexOutput() : String \\
+  \umlstatic{+ getTemplate() : String }\\
+  \umlstatic{+ updateTemplate(string : String) : void  }
+  }
+  
+  
+  
+ \umlclass[x=-16, type=class]{DayTopicLatexTemplate}
+ {
+ \umlstatic{- outputTemplate : StringBuilder }\\  
+  - outputLatex : StringBuilder \\
+   - dayTopicSource : DayTopic \\
+ }
+  {
+  + DayTopiclLatexTemplate() \\
+  + DayTopicLatexTemplate(agenda : DayTopic) \\
+  \umlstatic{- initTemplate() : void }\\
+  + createLatexOutput() : void \\
+  + getLatexOutput() : String \\
+  \umlstatic{+ getTemplate() : String }\\
+  \umlstatic{+ updateTemplate(string : String) : void  }  
+  } 
+   
+   
+   
+   
+\umlclass[x=-24, type=class]{SpeechLatexTemplate}
+ {
+ \umlstatic{- outputTemplate : StringBuilder }\\  
+  - outputLatex : StringBuilder \\
+   - speechSource : Speech \\
+ }
+  {
+  + SpeechLatexTemplate() \\
+  + SpeechLatexTemplate(speechObj : Speech) \\
+  \umlstatic{- initTemplate() : void }\\
+  + createLatexOutput() : void \\
+  + getLatexOutput() : String \\
+  \umlstatic{+ getTemplate() : String }\\
+  \umlstatic{+ updateTemplate(String string) : void  }
+  }
+
+ 
+ 
+  \end{umlpackage}  % template
+
+
+\umlclass[x=30 ,y=-7, type=class]{LatexBuilder}
+ {
+ - resourcePath : String \\
+ - resourceFilePath : String  \\
+ - outputDoc : StringBuilder \\ 
+ - debug : Boolean  \\
+ - warning : Boolean \\
+ - renderer : String  \\
+ }
+  {
+  + LatexBuilder() \\
+  -  createHeadofDoc(template : LatexTemplate) : void \\
+  + debug(Boolean flag) : void \\
+  + warning(Boolean flag) : void \\
+  + saveTexFile(template : LatexTemplate, filePath : String, \\
+  \qquad fileName : String,  renderer : String) : void \\     
+   + createPDF(template : LatexTemplate ,  filePath : String, \\
+   \qquad  fileName : String, renderer : String)  : void \\ 
+   + renderPDF() : void \\
+  }
+ 
+ \umlclass[x=18 ,y=-7, type=class]{LatexCommand}
+ {
+  - name : String \\
+  - optionsList : List<String> \\
+  - argumentsList : List<String> \\
+  - output : StringBuilder \\
+ }
+  {
+  + LatexCommand(cmdName : String, args.. : String) \\
+  + LatexCommand(cmdName : String) \\
+  + LatexCommand (cmdName : String, options : List<String>, args.. : String)\\
+  + addOptions(opts..: String) : void \\
+  + addArguments(args..: String) : void \\\\
+  + String toString() : String \\
+  }
+ 
+ \umlclass[x=6 ,y=-7, type=class]{LatexEnvironment}
+ {
+ - name : String \\
+ - optionsList : List<String> \\
+ - output : StringBuilder \\
+ - content : StringBuilder \\
+ - changed : Boolean
+ }
+  {
+ + LatexEnvironment(envName : String) \\
+ + LatexEnvironment(envName : String, options : List<String>)\\
+ + addOptions(opts..: String) : void \\
+ + addText(text : String) : void \\
+ + toString() : String  
+  }
+ 
+ 
+\end{umlpackage} % latex
+
+
+\umlassoc[geometry=|-|]{ProtocolLatexTemplate}{LatexTemplate}
+\umlassoc[geometry=|-|]{SpeechLatexTemplate}{ProtocolLatexTemplate}
+\umlassoc[geometry=|-|]{DayTopicLatexTemplate}{SpeechLatexTemplate}
+
+\umlassoc[geometry=|-|]{LatexBuilder}{LatexTemplate}
+\umlassoc[geometry=|-|]{LatexCommand}{LatexBuilder}
+\umlassoc[geometry=|-|]{LatexEnvironment}{LatexCommand}
+
+
+
+
+
+
+\begin{umlpackage}[x=5, y=-43]{webscraper}
+        \umlclass[type=class]{WebScraper}
+ {}
+ {
+ + getPicDataByName(firstName : String , lastName : String, \\
+ \qquad  pictureUrlMap : Map<String, String>) : List<String> \\
+ + getMembersUrlMap() : Map<String, String> \\
+ + getProtocols() : List<Document> \\
+ + getProtocolsXML(searchUrl : String, requestURL : String,\\ 
+ \qquad allDocs : List<org.jsoup.nodes.Document>, offset : int ) : void
+ }
+\end{umlpackage}
+
+
+
+
+
+
+
+
+
+
+
+\begin{umlpackage}[x=25, y=-48]{webservice}
+
+
+        \umlclass[type=class]{Webserver}
+        {
+            - parliament : Factory\string_MongoDB\string_Impl\\
+            - mongoDB : MongoDBHandler\\
+            - config : Config
+        }
+        {
+            + Webserver(parliament : Factory\string_MongoDB\string_Impl) \\
+            + init() : void
+        }
+
+
+
+        \umlclass[y=-6, type=class]{RestRoutes}
+        {
+            - config : Configuration \\
+            - parliament : Factory\string_MongoDB\string_Impl\\
+            \# mongoDB : MongoDBHandler\\
+            \umlstatic{- speakerSpeechCount : JSONArray} \\
+            \umlstatic{- speechCount : long} \\
+            \umlstatic{- commentCount : long} \\
+            \umlstatic{- session : Session} \\
+
+            \umlstatic{- tokenCache : JSONArray} \\
+            \umlstatic{- posCache : JSONArray} \\
+            \umlstatic{- sentimentCache : JSONArray} \\
+            \umlstatic{- namedEntityCache : JSONArray} \\
+            \umlstatic{- speakerCache : JSONArray}
+        }
+        {
+           +  RestRoutes(config : Configuration , parliament : Factory\string_MongoDB\string_Impl,\\
+           \qquad\qquad\qquad mongoDB : MongoDBHandler )\\
+            + createSiteRoutes() : void \\
+            + createDataRoutes() : void \\
+            + createNetworkGraphRoutes() : void \\
+            + createLoginRoutes() : void \\           
+            - getModelAndView(response : Response) : ModelAndView
+        }
+
+
+
+\umlclass[y=-15, type=class]{RouteFunctions}
+        {
+            - parliament : Factory\string_MongoDB\string_Impl\\
+            - mongoDB : MongoDBHandler\\
+            - config : Config
+        }
+        {
+            +  RestFunctions(config : Configuration , parliament : Factory\string_MongoDB\string_Impl,\\
+           \qquad\qquad\qquad mongoDB : MongoDBHandler )\\
+           \umlstatic{ + getTokenDistribution() : JSONArray } \\
+           \umlstatic{ + getPosDistribution() : JSONArray } \\
+           \umlstatic{ + getSentimentDistribution() : JSONArray } \\
+           \umlstatic{ + getNamedEntityDistribution() : JSONArray } \\
+           \umlstatic{ + getSpeakerDistribution() : JSONArray } \\
+           \umlstatic{ + helpJsonArray(namedEntity : String , collection : String) : JSONArray } \\    
+           \umlstatic{ + getCommentNetwork(int sampleSize) : JSONObject }\\
+           \umlstatic{ + getSpeechTopicNetwork(int sampleSize) : JSONObject }\\
+           \umlstatic{ + getSpeechSentTopicNetwork(int sampleSize) : JSONObject }\\           
+    \umlstatic{ +  speakerSpeechCount(filter : String, intervall : List<Date>, limit : int) : AggregateIterable }\\
+    \umlstatic{ +  getFulltextSpeechAnalysis(speechID : String) : AggregateIterable}\\
+     \umlstatic{ + getSpeakerPictures() : AggregateIterable }\\
+    \umlstatic{ + getSpeakerInfos() : AggregateIterable }\\
+        }
+
+    \end{umlpackage}
+
+\umlassoc[geometry=|-|]{LatexTemplate}{Webserver}
+
+\umlassoc{Webserver}{RestRoutes}
+\umlassoc{RouteFunctions}{RestRoutes}
+
+  
+
+
+
+\begin{umlpackage}[x=40, y=-48]{user\string_data}
+
+
+ \umlclass[type=interface]{Role}
+ {}
+ {
+ + setRoleName(roleName : String) : void \\
+ + String getRoleName() : String 
+ }
+ 
+ \umlclass[y=-3, type=class]{AdminRole}
+ {
+ - rolename : String
+ }
+ {
+ + AdminRole(roleName : String) \\
+ + setRoleName(roleName : String) : void \\
+ + String getRoleName() : String 
+ }
+ 
+ \umlclass[y=-6, type=class]{UserRole}
+ {
+ - rolename : String
+ }
+ {
+  + Use rRole(roleName : String) \\
+ + setRoleName(roleName : String) : void \\
+ + String getRoleName() : String 
+ }
+
+ 
+ 
+ \umlclass[y=-12, type=class]{User}
+ {
+ - username : String \\
+ - password : String \\
+ - birthday : String \\
+ - email : String \\ 
+ -  role : Role \\
+ - userDoc : final Document 
+ }
+ {
+ + User(userDoc : Document) \\
+ - init() : void \\
+ - setUsername() : void \\
+ - setPassword() : void \\
+ - setBirthday() : void \\
+ - setRole() : void \\
+ - setEmail() : void \\
+ + isAdmin() : boolean\\
+ + getEmail() : String \\
+ + getUsername() : String \\
+ + getRole() : Role \\
+ + String getBirthday() : String  \\
+ + String getPassword() : String \\
+ + toDocument() : Document \\
+ }
+ 
+\end{umlpackage}
+
+\umlassoc{AdminRole}{Role}
+\umlassoc{UserRole}{AdminRole}
+\umlassoc{User}{UserRole}
+
+\umlassoc{Role}{Webserver}
+
+
+
+
+\begin{umlpackage}[x=58, y=-44]{database}
+
+
+
+        \umlclass[type=class]{MongoDBHandler}
+        {
+            - db : MongoDatabase \\
+            
+        }
+        {
+            + MongoDBHandler(path : String) \\
+            + protocolToMongo(path : String) : void\\
+            + speakerToMongo(path : String) : void\\
+            + partyToMongo(path : String) : void\\
+            + factionToMongo(path : String) : void\\
+            + saveSpeaker(speakerMap : Map<String, Speaker>)\\
+            + saveSpeaker(speakerList : List<Speaker>)\\
+            + updateSpeaker(speakerMap : Map<String, Speaker>)\\           
+            + saveParty(parties : List<Party>) : void\\             
+            + updateParty(party : Map<String, Party>) : void\\
+    + getParty(speakerMap : Map<String, Speaker> ) : List<Party> \\
+            + getParty() : Map<String, Party> \\
+            + saveFaction( FactionList : List<Faction>) : void\\
+            + updateFaction( faction : Map<String, Faction>)\\
+            + getFaction(Map<String, Speaker> s) : List<Faction> \\            
+            + getFaction() : Map<String, Faction> \\ 
+            + saveSpeech(Map<String, Speech> speechMap)\\
+            + saveProtocol(List<Protocol> pList) : void\\
+            + updateProtocol(List<Protocol> pList) :void\\
+  + getProtocol( speakerMap : Map<String, Speaker>) : List<Protocol> \\           
+ + getSpeakerByID(String id, Map<String, Party> partyMap) : Speaker \\
+ + getSpeechByID(String id, Map<String, Speaker> speakerMap) : Speech\\
+ + speechAnalysis() : void\\
+ + getDatabase() : MongoDatabase\\
+ + insert(pCollection:String,pDocument:Document ) : void\\
+ + getDocumentById(String id, String sCollection) : Document   \\        
+  + getUsers() : List<Document> \\
+  + deleteUser(username : String ) : void\\
+  + updateUser( username:String,  field:String, update:String ) : void \\
+  + getUserById(String id) \\
+  + updateDocument(id:String, field:String, update:String, collection:String) : void\\
+   + countDocuments(query:Document,  collectionName:String) : void\\
+    + getObjects(query:Document,  collectionName:String) : MongoCursor<Document> \\
+    + getObjects(query:Document,  collectionName:String,  limit:int) MongoCursor<Document>\\
+                   }
+
+
+
+
+
+
+\umlclass[y=-10, type=class]{MongoDBUserHandler}
+        {}
+        {
+           +  MongoDBUserHandler(MongoDBHandler client) \\
+           +  createUser(username : String , password : String)  : void\\
+           +  deleteUser(username : String) : void
+        }
+
+
+\umlclass[y=-14, type=class]{MultiNLP}
+        {
+        - db : MongoDatabase \\
+    - protocols : List<Document> \\
+    - processedProtocols : List<String> \\
+    - processedComments : List<String> \\
+        }
+        {
+           +  MultiNLP(client : MongoDBHandler , protocols : List<Document>, \\  \quad processedProtocols : List<String>, processedComments : List<String>)  \\
+           + run() : void \\
+        }
+
+
+\end{umlpackage} %database
+
+\umlassoc[geometry=|-|]{MultiNLP}{MongoDBUserHandler}
+
+ \umlassoc[geometry=|-|]{MongoDBHandler}{Factory\string_MongoDB\string_Impl}
+  \umlassoc[geometry=|-|]{MongoDBHandler}{Protocol\string_MongoDB\string_Impl}
+   
+    \umlassoc[geometry=|-|]{MongoDBHandler}{DayTopic\string_MongoDB\string_Impl}
+    \umlassoc[geometry=|-|]{MongoDBHandler}{Speech\string_MongoDB\string_Impl}
+    \umlassoc[geometry=|-|]{MongoDBHandler}{Comment\string_MongoDB\string_Impl}
+    \umlassoc[geometry=|-|]{MongoDBHandler}{Speaker\string_MongoDB\string_Impl}
+    \umlassoc[geometry=|-|]{MongoDBHandler}{Member\string_MongoDB\string_Impl}
+    \umlassoc[geometry=|-|]{MongoDBHandler}{Faction\string_MongoDB\string_Impl}
+    \umlassoc[geometry=|-|]{MongoDBHandler}{Party\string_MongoDB\string_Impl}
+
+
+
+
+
+
+
+
+
+
+\begin{umlpackage}[x=76, y=-41]{nlp}
+
+\umlclass[type=interface]{NLPDoc}
+ {} 
+ {
+ + toJCas : JCas \\
+ + getNamedEntities() : List<NamedEntity> \\
+ + getTokens() :  List<Token> \\
+ + getPOS() :  List<POS> \\
+ + getSentiments() :  List<Sentiment> \\
+ + getLemmas() :  List<Lemma> \\
+ + getSentences() :  List<Sentence> \\
+ + getDocumentSentiment() : Sentiment \\
+ + isProcessed() : boolean 
+ }
+ \umlclass[y=-4, type=class]{NLPDoc\string_Impl}
+ {
+ - document : Document\\
+ - jcas : JCas
+ }
+ {
+ + setCas(JCas pCas) : void 
+  }
+
+\umlclass[y=-8, type=class]{NLPTool}
+ {
+ - analysisEng : AnalysisEngine \\
+ }
+  {
+  + NLPTool() : void \\
+  + analyze(jCas : JCas) : JCas\\
+  + analyzeMany(jCasList : List<JCas>) : List<JCas> \\
+   \umlstatic{ + annoToDocList(annoList :  List<Annotation>) : List<Document> }\\
+   \umlstatic{ + annoToStringList(annoList) : List<Annotation>)  : List<String> }
+  }
+
+
+\umlclass[y=-14, type=class]{NLPAnalyzeToMongo}
+ {
+  \umlstatic{ + nlpTool : NLPTool } 
+ }
+ {
+ \umlstatic{ + toNLPDoc(speechMongo : Speech\string_MongoDB\string_Impl) :  Document } \\  
+ \umlstatic{ + toStringList( annoList : List<Annotation>) : List<String>  }    \\
+ \umlstatic{ +  serializeJCasToXMI(jCas : JCas) : String } \\
+ \umlstatic{ + deserializeJCasFromXMI(xmi : String) : JCas } \\
+ \umlstatic{ +  serialize(jCas : JCas) : String } \\
+ \umlstatic{ +  deserialize(input : String) : JCas} \\
+
+ }
+ 
+\end{umlpackage} % nlp
+
+
+\umlassoc[geometry=|-|]{NLPAnalyzeToMongo}{NLPTool}
+\umlassoc[geometry=|-|]{NLPTool}{NLPDoc\string_Impl}
+\umlassoc[geometry=|-|]{NLPDoc\string_Impl}{NLPDoc}
+
+\umlassoc[geometry=|-|]{NLPDoc}{Speech\string_MongoDB\string_Impl}
+\umlassoc[geometry=|-|]{NLPDoc}{Comment\string_MongoDB\string_Impl}
+
+
+
+
+
+
+    \umlclass[x=25, y=-33, type=class]{Main}
+    {
+            }
+    {
+        \umlstatic{+ main( args : String[] ) : void}\\
+        \umlstatic{+ webserverStartup() : void} \\     
+            }
+
+
+
+
+    \umlassoc[anchor1=180, anchor2=-50, geometry=-|]{Main}{Factory\string_File\string_Impl}
+    \umlassoc[anchor1=0, anchor2=180, geometry=-|-]{Main}{MongoDBHandler}
+    \umlassoc[anchor1=-20, anchor2=180, geometry=-|-]{MongoDBHandler}{MongoDBUserHandler}
+    \umlassoc[anchor1=90, anchor2=-70, geometry=|-|]{InputException}{Factory\string_File\string_Impl}
+    \umlassoc[anchor1=90, anchor2=-70, geometry=|-|]{InputException}{XMLHelper}
+    \umlassoc[anchor1=0, anchor2=250, geometry=-|]{WebScraper}{Main}
+    \umlassoc[anchor1=0, anchor2=250, geometry=-|]{WebScraper}{XMLHelper}  
+    \umlassoc[anchor1=0, anchor2=-70, geometry=-|]{NLPTool}{MongoDBHandler}
+    \umlassoc[anchor1=0, anchor2=250, geometry=-|]{DDCLoader}{Main}
+    \umlassoc[anchor1=180, anchor2=290, geometry=-|]{Webserver}{Main}
+    
+
+\end{umlpackage}
+
+\end{tikzpicture}
+
+%\end{figure}
+\end{document}

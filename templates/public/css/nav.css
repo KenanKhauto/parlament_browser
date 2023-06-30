@@ -1,0 +1,68 @@
+/*
+Author: Simon Schuett
+*/
+
+/*Top Navigation Bar*/
+nav {
+    position: fixed;
+    z-index: 1000;
+    min-height: 50px;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding-left: 200px;
+}
+nav > div {
+    min-height: 50px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 60%;
+    max-width: 500px;
+}
+nav li {
+    width: auto;
+}
+nav a {
+    text-decoration: none;
+    font-weight: lighter;
+    color: lightgray;
+    display: block;
+    padding: 0 10px;
+}
+nav a:hover {
+    color: white;
+}
+
+/*Sidenav*/
+div.sidenav {
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background-color: #181818
+}
+a.sidenav-btn, span.sidenav-btn {
+    text-decoration: none;
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: block
+}
+a.sidenav-btn:hover, span.sidenav-btn:hover {
+    background-color: #282828;
+}
+span.sidenav-btn {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}

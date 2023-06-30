@@ -1,0 +1,23 @@
+- getPlenaryObject(id) oder getSpeakerById(id) um eine Route für die Einzelansicht von Reden/Rednern/Kommentaren etc. zu ermöglichen: http://localhost:4567/deputy?id=DEP11001478
+done, getSpeakerByIDAg(String ID), getSpeakerByAttributeAg(String Attribute, String Name) in Factory_MongoDB_Impl
+- UserDB mit gettern und settern für die Userdatenbank
+
+- getPartyByID(id)
+- party.getMembers() ist leer (vgl. parties.ftl Route)
+- Factory_MongoDB_Impl.getFactions()
+done
+
+- Die Abfrage Factory_MongoDB_Imple.getProtocols() dauert anscheinend viel zu lange. Das brauche ich um die Reden nach Tagesordungspunkten und Protokollen aufzulisten.
+Factory_MongoDB_Impl.getProtocolByIDAg() läuft über Aggregates, vielleicht ist das schneller
+- Dann brauche auch die Option, mit der Protokoll-ID, das Protokoll und dessen Tagesordnungspunkten zu bekommen.
+Factory_MongoDB_Impl.getProtocolByIDAg() bekommst du ein ganzes protocol
+- Und schließlich mit der Tagesordnungpunkt-ID den Tagesordnungspunkt und die Reden.
+Factory_MongoDB_Impl.getDayTopicByIDAg()
+
+- Bilderlinks der Abgeordneten in die Speaker-Collection einfügen
+
+-speaker getSpeeches
+-speaker getURL
+
+-volltextsuche
+

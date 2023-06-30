@@ -1,0 +1,55 @@
+/*
+Author: Simon Schuett
+*/
+
+ul.collapse-list, ul.collapse-list ul {
+    list-style-type: none;
+}
+
+ul.collapse-list {
+    margin: 0;
+    padding: 0;
+}
+
+ul.collapse-list span {
+    display: block;
+    padding: 2px 0;
+    border-radius: 5px;
+}
+
+ul.collapse-list span:hover {
+    background-color: #333333;
+}
+
+span.fold-element {
+    cursor: pointer;
+}
+
+ul.collapse-list i {
+    margin-right: 5px;
+    transition: 0.25s ease-in-out;
+}
+
+ul.collapse-list span.active i {
+    transform: rotate(90deg);
+}
+
+ul.collapse-list ul {
+    display: none;
+    /*animation: slidedown 0.4s;*/
+    animation: fade 0.5s;
+}
+
+ul.collapse-list ul.active {
+    display: block;
+    padding-left: 20px;
+}
+
+@keyframes slidedown {
+    from {
+        transform: translate(0, -100%)
+    }
+    to {
+        transform: translate(0, 0)
+    }
+}

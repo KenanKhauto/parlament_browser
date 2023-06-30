@@ -1,0 +1,21 @@
+\contentsline {section}{\numberline {0.1}Introduction}{2}{}%
+\contentsline {chapter}{\numberline {1}Features: Home und obere Navigationsleiste }{3}{}%
+\contentsline {section}{\numberline {1.1}Home $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /}{3}{}%
+\contentsline {section}{\numberline {1.2}SignIn $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /login}{3}{}%
+\contentsline {section}{\numberline {1.3}Create-Account $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /create-account}{4}{}%
+\contentsline {section}{\numberline {1.4}Profile $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /profile}{4}{}%
+\contentsline {section}{\numberline {1.5}Admin Dashboard $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /admin-dashboard}{4}{}%
+\contentsline {section}{\numberline {1.6}General Search $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /searchGeneral}{5}{}%
+\contentsline {section}{\numberline {1.7}Deputies $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /deputies}{6}{}%
+\contentsline {section}{\numberline {1.8}Parties $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /parties}{7}{}%
+\contentsline {section}{\numberline {1.9}Factions $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /factions}{8}{}%
+\contentsline {chapter}{\numberline {2}Visualisation}{9}{}%
+\contentsline {section}{\numberline {2.1}Graphs $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /graphs}{9}{}%
+\contentsline {section}{\numberline {2.2}Fulltext $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /fulltextSpeechSite}{14}{}%
+\contentsline {section}{\numberline {2.3}Networks}{15}{}%
+\contentsline {chapter}{\numberline {3}Services}{18}{}%
+\contentsline {section}{\numberline {3.1}PDF Export $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /latexExport}{18}{}%
+\contentsline {section}{\numberline {3.2}Search/Query $\hskip 1em\relax \rightarrow \hskip 1em\relax $ Route: /search}{19}{}%
+\contentsline {chapter}{\numberline {4}System-Anforderungen}{21}{}%
+\contentsline {section}{\numberline {4.1}Java Spark Webserver}{21}{}%
+\contentsline {section}{\numberline {4.2}Browser Client}{21}{}%

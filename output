@@ -1,0 +1,220 @@
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/stanleymathew/.m2/repository/org/apache/logging/log4j/log4j-slf4j-impl/2.13.3/log4j-slf4j-impl-2.13.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/stanleymathew/.m2/repository/org/slf4j/slf4j-nop/1.7.22/slf4j-nop-1.7.22.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+ERROR StatusLogger Caught java.lang.AbstractMethodError setting feature http://xml.org/sax/features/external-general-entities to false on DocumentBuilderFactory org.apache.xerces.jaxp.DocumentBuilderFactoryImpl@565f390: java.lang.AbstractMethodError: javax.xml.parsers.DocumentBuilderFactory.setFeature(Ljava/lang/String;Z)V
+ java.lang.AbstractMethodError: javax.xml.parsers.DocumentBuilderFactory.setFeature(Ljava/lang/String;Z)V
+	at org.apache.logging.log4j.core.config.xml.XmlConfiguration.setFeature(XmlConfiguration.java:204)
+	at org.apache.logging.log4j.core.config.xml.XmlConfiguration.disableDtdProcessing(XmlConfiguration.java:197)
+	at org.apache.logging.log4j.core.config.xml.XmlConfiguration.newDocumentBuilder(XmlConfiguration.java:186)
+	at org.apache.logging.log4j.core.config.xml.XmlConfiguration.<init>(XmlConfiguration.java:89)
+	at org.apache.logging.log4j.core.config.xml.XmlConfigurationFactory.getConfiguration(XmlConfigurationFactory.java:46)
+	at org.apache.logging.log4j.core.config.ConfigurationFactory$Factory.getConfiguration(ConfigurationFactory.java:558)
+	at org.apache.logging.log4j.core.config.ConfigurationFactory$Factory.getConfiguration(ConfigurationFactory.java:482)
+	at org.apache.logging.log4j.core.config.ConfigurationFactory.getConfiguration(ConfigurationFactory.java:322)
+	at org.apache.logging.log4j.core.LoggerContext.reconfigure(LoggerContext.java:695)
+	at org.apache.logging.log4j.core.LoggerContext.reconfigure(LoggerContext.java:716)
+	at org.apache.logging.log4j.core.LoggerContext.start(LoggerContext.java:270)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:155)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:47)
+	at org.apache.logging.log4j.LogManager.getContext(LogManager.java:196)
+	at org.apache.logging.log4j.spi.AbstractLoggerAdapter.getContext(AbstractLoggerAdapter.java:137)
+	at org.apache.logging.slf4j.Log4jLoggerFactory.getContext(Log4jLoggerFactory.java:45)
+	at org.apache.logging.log4j.spi.AbstractLoggerAdapter.getLogger(AbstractLoggerAdapter.java:47)
+	at org.apache.logging.slf4j.Log4jLoggerFactory.getLogger(Log4jLoggerFactory.java:30)
+	at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:358)
+	at com.mongodb.diagnostics.logging.SLF4JLogger.<init>(SLF4JLogger.java:26)
+	at com.mongodb.diagnostics.logging.Loggers.getLogger(Loggers.java:50)
+	at com.mongodb.internal.connection.BaseCluster.<clinit>(BaseCluster.java:68)
+	at com.mongodb.connection.DefaultClusterFactory.createCluster(DefaultClusterFactory.java:195)
+	at com.mongodb.Mongo.createCluster(Mongo.java:758)
+	at com.mongodb.Mongo.createCluster(Mongo.java:744)
+	at com.mongodb.Mongo.<init>(Mongo.java:309)
+	at com.mongodb.Mongo.<init>(Mongo.java:304)
+	at com.mongodb.MongoClient.<init>(MongoClient.java:317)
+	at org.texttechnologylab.parliament_browser_3_4.database.MongoDBHandler.<init>(MongoDBConnectionHandler.java:82)
+	at org.texttechnologylab.parliament_browser_3_4.Main.simonTest(Main.java:166)
+	at org.texttechnologylab.parliament_browser_3_4.Main.main(Main.java:45)
+ERROR StatusLogger Caught java.lang.AbstractMethodError setting feature http://xml.org/sax/features/external-parameter-entities to false on DocumentBuilderFactory org.apache.xerces.jaxp.DocumentBuilderFactoryImpl@565f390: java.lang.AbstractMethodError: javax.xml.parsers.DocumentBuilderFactory.setFeature(Ljava/lang/String;Z)V
+ java.lang.AbstractMethodError: javax.xml.parsers.DocumentBuilderFactory.setFeature(Ljava/lang/String;Z)V
+	at org.apache.logging.log4j.core.config.xml.XmlConfiguration.setFeature(XmlConfiguration.java:204)
+	at org.apache.logging.log4j.core.config.xml.XmlConfiguration.disableDtdProcessing(XmlConfiguration.java:198)
+	at org.apache.logging.log4j.core.config.xml.XmlConfiguration.newDocumentBuilder(XmlConfiguration.java:186)
+	at org.apache.logging.log4j.core.config.xml.XmlConfiguration.<init>(XmlConfiguration.java:89)
+	at org.apache.logging.log4j.core.config.xml.XmlConfigurationFactory.getConfiguration(XmlConfigurationFactory.java:46)
+	at org.apache.logging.log4j.core.config.ConfigurationFactory$Factory.getConfiguration(ConfigurationFactory.java:558)
+	at org.apache.logging.log4j.core.config.ConfigurationFactory$Factory.getConfiguration(ConfigurationFactory.java:482)
+	at org.apache.logging.log4j.core.config.ConfigurationFactory.getConfiguration(ConfigurationFactory.java:322)
+	at org.apache.logging.log4j.core.LoggerContext.reconfigure(LoggerContext.java:695)
+	at org.apache.logging.log4j.core.LoggerContext.reconfigure(LoggerContext.java:716)
+	at org.apache.logging.log4j.core.LoggerContext.start(LoggerContext.java:270)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:155)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:47)
+	at org.apache.logging.log4j.LogManager.getContext(LogManager.java:196)
+	at org.apache.logging.log4j.spi.AbstractLoggerAdapter.getContext(AbstractLoggerAdapter.java:137)
+	at org.apache.logging.slf4j.Log4jLoggerFactory.getContext(Log4jLoggerFactory.java:45)
+	at org.apache.logging.log4j.spi.AbstractLoggerAdapter.getLogger(AbstractLoggerAdapter.java:47)
+	at org.apache.logging.slf4j.Log4jLoggerFactory.getLogger(Log4jLoggerFactory.java:30)
+	at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:358)
+	at com.mongodb.diagnostics.logging.SLF4JLogger.<init>(SLF4JLogger.java:26)
+	at com.mongodb.diagnostics.logging.Loggers.getLogger(Loggers.java:50)
+	at com.mongodb.internal.connection.BaseCluster.<clinit>(BaseCluster.java:68)
+	at com.mongodb.connection.DefaultClusterFactory.createCluster(DefaultClusterFactory.java:195)
+	at com.mongodb.Mongo.createCluster(Mongo.java:758)
+	at com.mongodb.Mongo.createCluster(Mongo.java:744)
+	at com.mongodb.Mongo.<init>(Mongo.java:309)
+	at com.mongodb.Mongo.<init>(Mongo.java:304)
+	at com.mongodb.MongoClient.<init>(MongoClient.java:317)
+	at org.texttechnologylab.parliament_browser_3_4.database.MongoDBHandler.<init>(MongoDBConnectionHandler.java:82)
+	at org.texttechnologylab.parliament_browser_3_4.Main.simonTest(Main.java:166)
+	at org.texttechnologylab.parliament_browser_3_4.Main.main(Main.java:45)
+ERROR StatusLogger Caught java.lang.AbstractMethodError setting feature http://apache.org/xml/features/nonvalidating/load-external-dtd to false on DocumentBuilderFactory org.apache.xerces.jaxp.DocumentBuilderFactoryImpl@565f390: java.lang.AbstractMethodError: javax.xml.parsers.DocumentBuilderFactory.setFeature(Ljava/lang/String;Z)V
+ java.lang.AbstractMethodError: javax.xml.parsers.DocumentBuilderFactory.setFeature(Ljava/lang/String;Z)V
+	at org.apache.logging.log4j.core.config.xml.XmlConfiguration.setFeature(XmlConfiguration.java:204)
+	at org.apache.logging.log4j.core.config.xml.XmlConfiguration.disableDtdProcessing(XmlConfiguration.java:199)
+	at org.apache.logging.log4j.core.config.xml.XmlConfiguration.newDocumentBuilder(XmlConfiguration.java:186)
+	at org.apache.logging.log4j.core.config.xml.XmlConfiguration.<init>(XmlConfiguration.java:89)
+	at org.apache.logging.log4j.core.config.xml.XmlConfigurationFactory.getConfiguration(XmlConfigurationFactory.java:46)
+	at org.apache.logging.log4j.core.config.ConfigurationFactory$Factory.getConfiguration(ConfigurationFactory.java:558)
+	at org.apache.logging.log4j.core.config.ConfigurationFactory$Factory.getConfiguration(ConfigurationFactory.java:482)
+	at org.apache.logging.log4j.core.config.ConfigurationFactory.getConfiguration(ConfigurationFactory.java:322)
+	at org.apache.logging.log4j.core.LoggerContext.reconfigure(LoggerContext.java:695)
+	at org.apache.logging.log4j.core.LoggerContext.reconfigure(LoggerContext.java:716)
+	at org.apache.logging.log4j.core.LoggerContext.start(LoggerContext.java:270)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:155)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:47)
+	at org.apache.logging.log4j.LogManager.getContext(LogManager.java:196)
+	at org.apache.logging.log4j.spi.AbstractLoggerAdapter.getContext(AbstractLoggerAdapter.java:137)
+	at org.apache.logging.slf4j.Log4jLoggerFactory.getContext(Log4jLoggerFactory.java:45)
+	at org.apache.logging.log4j.spi.AbstractLoggerAdapter.getLogger(AbstractLoggerAdapter.java:47)
+	at org.apache.logging.slf4j.Log4jLoggerFactory.getLogger(Log4jLoggerFactory.java:30)
+	at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:358)
+	at com.mongodb.diagnostics.logging.SLF4JLogger.<init>(SLF4JLogger.java:26)
+	at com.mongodb.diagnostics.logging.Loggers.getLogger(Loggers.java:50)
+	at com.mongodb.internal.connection.BaseCluster.<clinit>(BaseCluster.java:68)
+	at com.mongodb.connection.DefaultClusterFactory.createCluster(DefaultClusterFactory.java:195)
+	at com.mongodb.Mongo.createCluster(Mongo.java:758)
+	at com.mongodb.Mongo.createCluster(Mongo.java:744)
+	at com.mongodb.Mongo.<init>(Mongo.java:309)
+	at com.mongodb.Mongo.<init>(Mongo.java:304)
+	at com.mongodb.MongoClient.<init>(MongoClient.java:317)
+	at org.texttechnologylab.parliament_browser_3_4.database.MongoDBHandler.<init>(MongoDBConnectionHandler.java:82)
+	at org.texttechnologylab.parliament_browser_3_4.Main.simonTest(Main.java:166)
+	at org.texttechnologylab.parliament_browser_3_4.Main.main(Main.java:45)
+15:51:27.395 [main] INFO  cluster - Cluster created with settings {hosts=[prg2022.texttechnologylab.org:27020], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+15:51:27.412 [main] INFO  cluster - Adding discovered server prg2022.texttechnologylab.org:27020 to client view of cluster
+15:51:27.477 [main] INFO  cluster - Cluster created with settings {hosts=[prg2022.texttechnologylab.org:27020], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+15:51:27.477 [main] INFO  cluster - Adding discovered server prg2022.texttechnologylab.org:27020 to client view of cluster
+15:51:27.638 [cluster-ClusterId{value='63dfc26e18e42c18e02773ed', description='null'}-prg2022.texttechnologylab.org:27020] INFO  connection - Opened connection [connectionId{localValue:1, serverValue:82091}] to prg2022.texttechnologylab.org:27020
+15:51:27.638 [cluster-ClusterId{value='63dfc26f18e42c18e02773ee', description='null'}-prg2022.texttechnologylab.org:27020] INFO  connection - Opened connection [connectionId{localValue:2, serverValue:82092}] to prg2022.texttechnologylab.org:27020
+15:51:27.653 [cluster-ClusterId{value='63dfc26e18e42c18e02773ed', description='null'}-prg2022.texttechnologylab.org:27020] INFO  cluster - Monitor thread successfully connected to server with description ServerDescription{address=prg2022.texttechnologylab.org:27020, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 4, 0]}, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=13162618}
+15:51:27.653 [cluster-ClusterId{value='63dfc26f18e42c18e02773ee', description='null'}-prg2022.texttechnologylab.org:27020] INFO  cluster - Monitor thread successfully connected to server with description ServerDescription{address=prg2022.texttechnologylab.org:27020, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 4, 0]}, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=12176119}
+15:51:27.654 [cluster-ClusterId{value='63dfc26f18e42c18e02773ee', description='null'}-prg2022.texttechnologylab.org:27020] INFO  cluster - Discovered cluster type of STANDALONE
+15:51:27.654 [cluster-ClusterId{value='63dfc26e18e42c18e02773ed', description='null'}-prg2022.texttechnologylab.org:27020] INFO  cluster - Discovered cluster type of STANDALONE
+log4j:ERROR Could not instantiate class [org.apache.log4j.filter.StringMatchFilter].
+java.lang.ClassNotFoundException: org.apache.log4j.filter.StringMatchFilter
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:387)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:352)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at org.apache.log4j.helpers.Loader.loadClass(Loader.java:198)
+	at org.apache.log4j.helpers.OptionConverter.instantiateByClassName(OptionConverter.java:326)
+	at org.apache.log4j.xml.DOMConfigurator.parseFilters(DOMConfigurator.java:360)
+	at org.apache.log4j.xml.DOMConfigurator.parseAppender(DOMConfigurator.java:273)
+	at org.apache.log4j.xml.DOMConfigurator.findAppenderByName(DOMConfigurator.java:176)
+	at org.apache.log4j.xml.DOMConfigurator.findAppenderByReference(DOMConfigurator.java:191)
+	at org.apache.log4j.xml.DOMConfigurator.parseChildrenOfLoggerElement(DOMConfigurator.java:523)
+	at org.apache.log4j.xml.DOMConfigurator.parseRoot(DOMConfigurator.java:492)
+	at org.apache.log4j.xml.DOMConfigurator.parse(DOMConfigurator.java:1001)
+	at org.apache.log4j.xml.DOMConfigurator.doConfigure(DOMConfigurator.java:867)
+	at org.apache.log4j.xml.DOMConfigurator.doConfigure(DOMConfigurator.java:773)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:483)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.log4j.Logger.getLogger(Logger.java:104)
+	at freemarker.log._Log4jLoggerFactory.getLogger(_Log4jLoggerFactory.java:30)
+	at freemarker.log.Logger.getLogger(Logger.java:362)
+	at freemarker.template.Configuration.<clinit>(Configuration.java:150)
+	at org.texttechnologylab.parliament_browser_3_4.webservice.Webserver.<init>(Webserver.java:26)
+	at org.texttechnologylab.parliament_browser_3_4.Main.simonTest(Main.java:174)
+	at org.texttechnologylab.parliament_browser_3_4.Main.main(Main.java:45)
+log4j:ERROR Could not instantiate class [org.apache.log4j.filter.StringMatchFilter].
+java.lang.ClassNotFoundException: org.apache.log4j.filter.StringMatchFilter
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:387)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:352)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at org.apache.log4j.helpers.Loader.loadClass(Loader.java:198)
+	at org.apache.log4j.helpers.OptionConverter.instantiateByClassName(OptionConverter.java:326)
+	at org.apache.log4j.xml.DOMConfigurator.parseFilters(DOMConfigurator.java:360)
+	at org.apache.log4j.xml.DOMConfigurator.parseAppender(DOMConfigurator.java:273)
+	at org.apache.log4j.xml.DOMConfigurator.findAppenderByName(DOMConfigurator.java:176)
+	at org.apache.log4j.xml.DOMConfigurator.findAppenderByReference(DOMConfigurator.java:191)
+	at org.apache.log4j.xml.DOMConfigurator.parseChildrenOfLoggerElement(DOMConfigurator.java:523)
+	at org.apache.log4j.xml.DOMConfigurator.parseRoot(DOMConfigurator.java:492)
+	at org.apache.log4j.xml.DOMConfigurator.parse(DOMConfigurator.java:1001)
+	at org.apache.log4j.xml.DOMConfigurator.doConfigure(DOMConfigurator.java:867)
+	at org.apache.log4j.xml.DOMConfigurator.doConfigure(DOMConfigurator.java:773)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:483)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.log4j.Logger.getLogger(Logger.java:104)
+	at freemarker.log._Log4jLoggerFactory.getLogger(_Log4jLoggerFactory.java:30)
+	at freemarker.log.Logger.getLogger(Logger.java:362)
+	at freemarker.template.Configuration.<clinit>(Configuration.java:150)
+	at org.texttechnologylab.parliament_browser_3_4.webservice.Webserver.<init>(Webserver.java:26)
+	at org.texttechnologylab.parliament_browser_3_4.Main.simonTest(Main.java:174)
+	at org.texttechnologylab.parliament_browser_3_4.Main.main(Main.java:45)
+log4j:ERROR Could not instantiate class [org.apache.log4j.filter.StringMatchFilter].
+java.lang.ClassNotFoundException: org.apache.log4j.filter.StringMatchFilter
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:387)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:352)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at org.apache.log4j.helpers.Loader.loadClass(Loader.java:198)
+	at org.apache.log4j.helpers.OptionConverter.instantiateByClassName(OptionConverter.java:326)
+	at org.apache.log4j.xml.DOMConfigurator.parseFilters(DOMConfigurator.java:360)
+	at org.apache.log4j.xml.DOMConfigurator.parseAppender(DOMConfigurator.java:273)
+	at org.apache.log4j.xml.DOMConfigurator.findAppenderByName(DOMConfigurator.java:176)
+	at org.apache.log4j.xml.DOMConfigurator.findAppenderByReference(DOMConfigurator.java:191)
+	at org.apache.log4j.xml.DOMConfigurator.parseChildrenOfLoggerElement(DOMConfigurator.java:523)
+	at org.apache.log4j.xml.DOMConfigurator.parseRoot(DOMConfigurator.java:492)
+	at org.apache.log4j.xml.DOMConfigurator.parse(DOMConfigurator.java:1001)
+	at org.apache.log4j.xml.DOMConfigurator.doConfigure(DOMConfigurator.java:867)
+	at org.apache.log4j.xml.DOMConfigurator.doConfigure(DOMConfigurator.java:773)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:483)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.log4j.Logger.getLogger(Logger.java:104)
+	at freemarker.log._Log4jLoggerFactory.getLogger(_Log4jLoggerFactory.java:30)
+	at freemarker.log.Logger.getLogger(Logger.java:362)
+	at freemarker.template.Configuration.<clinit>(Configuration.java:150)
+	at org.texttechnologylab.parliament_browser_3_4.webservice.Webserver.<init>(Webserver.java:26)
+	at org.texttechnologylab.parliament_browser_3_4.Main.simonTest(Main.java:174)
+	at org.texttechnologylab.parliament_browser_3_4.Main.main(Main.java:45)
+15:51:27.751 [main] INFO  StaticFilesConfiguration - External StaticResourceHandler configured with folder = templates/css
+15:51:27.797 [Thread-1] INFO  log - Logging initialized @3597ms to org.eclipse.jetty.util.log.Slf4jLog
+15:51:27.952 [Thread-1] INFO  EmbeddedJettyServer - == Spark has ignited ...
+15:51:27.952 [Thread-1] INFO  EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+15:51:27.957 [Thread-1] INFO  Server - jetty-9.4.48.v20220622; built: 2022-06-21T20:42:25.880Z; git: 6b67c5719d1f4371b33655ff2d047d24e171e49a; jvm 1.8.0_352-b08
+15:51:27.987 [Thread-1] INFO  session - DefaultSessionIdManager workerName=node0
+15:51:27.987 [Thread-1] INFO  session - No SessionScavenger set, using defaults
+15:51:27.989 [Thread-1] INFO  session - node0 Scavenging every 660000ms
+15:51:28.019 [Thread-1] INFO  AbstractConnector - Started ServerConnector@5edf141a{HTTP/1.1, (http/1.1)}{0.0.0.0:4567}
+15:51:28.019 [Thread-1] INFO  Server - Started @3820ms
+15:51:43.598 [qtp895268922-19] INFO  MatcherFilter - The requested route [/analysis/ddc] has not been mapped in Spark for Accept: [*/*]
+15:51:43.601 [qtp895268922-26] INFO  MatcherFilter - The requested route [/analysis/namedEntities] has not been mapped in Spark for Accept: [*/*]
+15:51:43.607 [qtp895268922-22] INFO  MatcherFilter - The requested route [/analysis/commentSentiment] has not been mapped in Spark for Accept: [*/*]
+15:51:43.608 [qtp895268922-29] INFO  MatcherFilter - The requested route [/analysis/commentLemmata] has not been mapped in Spark for Accept: [*/*]
+15:51:43.610 [qtp895268922-25] INFO  MatcherFilter - The requested route [/analysis/speechSentiment] has not been mapped in Spark for Accept: [*/*]
+15:51:43.816 [qtp895268922-20] INFO  connection - Opened connection [connectionId{localValue:3, serverValue:82099}] to prg2022.texttechnologylab.org:27020
+15:51:43.817 [qtp895268922-32] INFO  connection - Opened connection [connectionId{localValue:7, serverValue:82100}] to prg2022.texttechnologylab.org:27020
+15:51:43.817 [qtp895268922-29] INFO  connection - Opened connection [connectionId{localValue:5, serverValue:82096}] to prg2022.texttechnologylab.org:27020
+15:51:43.820 [qtp895268922-26] INFO  connection - Opened connection [connectionId{localValue:4, serverValue:82098}] to prg2022.texttechnologylab.org:27020
+15:51:43.821 [qtp895268922-28] INFO  connection - Opened connection [connectionId{localValue:6, serverValue:82097}] to prg2022.texttechnologylab.org:27020
+15:51:50.048 [qtp895268922-21] INFO  MatcherFilter - The requested route [/graphs] has not been mapped in Spark for Accept: [application/json, text/javascript, */*; q=0.01]
+15:52:07.778 [qtp895268922-29] INFO  MatcherFilter - The requested route [/graphs] has not been mapped in Spark for Accept: [application/json, text/javascript, */*; q=0.01]

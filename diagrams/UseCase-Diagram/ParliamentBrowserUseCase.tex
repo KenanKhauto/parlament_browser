@@ -1,0 +1,191 @@
+\documentclass[a4paper]{memoir}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor,rotating,picture,lipsum,xspace}
+\usepackage{graphics}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\usepackage{ifthen}
+
+\usepackage{fontawesome}
+
+\usepackage{lmodern}
+
+
+\usepackage{tikz}
+\usetikzlibrary{topaths}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{shapes}
+
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\renewcommand{\familydefault}{\sfdefault}
+
+\thispagestyle{empty}
+\usepackage{tikz-uml}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\umlactor[x=-2, y=-4]{Everyone};
+\umlactor[x=-2, y=-14]{User};
+\umlactor[x=-2, y=-21]{Manager};
+\umlactor[x=-2, y=-26]{Admin};
+
+\umlnote[x=-2, y=2]{Everyone}{Means every user without login}
+
+
+\umldep{User}{Everyone}
+\umldep{Manager}{User}
+\umldep{Admin}{Manager}
+
+\begin{umlsystem}[fill=yellow!10]{Parliament Browser}
+
+
+\umlusecase[x=6, y=-1, name=e0]{Export Protocols to PDF via Latex }
+\umlusecase[x=5, y=-3, name=e1]{Browse Plenary Protocols}
+\umlusecase[x=13, y=-2, name=e11]{Search in Protocols}
+\umlusecase[x=13, y=-4, name=e12]{Visualization Protocols}
+
+\umlusecase[x=21, y=-1, name=e121]{Visualization NLP-Information}
+\umlusecase[x=21, y=-6, name=e122]{Visualization Comments}
+\umlusecase[x=21, y=-4, name=e123]{Visualization Speeches}
+\umlusecase[x=33, y=-1, name=e13]{Visualization Graphs}
+\umlusecase[x=33, y=-4, name=e144]{Visualization Networks}
+
+
+\umlusecase[x=21, y=-9, name=e131]{Visualization Speaker-Information}
+\umlusecase[x=33, y=-7, name=e132]{Visualization Fraction-Information}
+\umlusecase[x=33, y=-12, name=e1311]{Visualization Speaker-Image}
+\umlusecase[x=33, y=-10, name=e1312]{Visualization Party-Information}
+
+
+\umlinclude{e13}{e144}
+
+\umlinclude{e131}{e13}
+\umlinclude{e121}{e13}
+\umlinclude{e12}{e123}
+\umlinclude{e123}{e13}
+
+\umlinclude{e122}{e13}
+\umlinclude{e1}{e11}
+\umlinclude{e1}{e12}
+
+\umlinclude{e12}{e121}
+\umlinclude{e12}{e122}
+\umlinclude{e12}{e131}
+\umlinclude{e131}{e1311}
+\umlinclude{e122}{e132}
+
+
+\umlinclude{e131}{e1312}
+\umlinclude{e131}{e132}
+
+
+
+
+
+\umlusecase[x=5, y=-5, name=e2]{Browse Speakers}
+
+\umlinclude{e2}{e131}
+
+\umlusecase[x=5, y=-8, name=e3]{Login}
+\umlusecase[x=5, y=-9, name=e31]{Logout}
+\umlusecase[x=5, y=-10, name=e32]{Change Password}
+
+
+\umlusecase[x=13, y=-14, name=e4]{Overview Sessions}
+\umlusecase[x=21, y=-14, name=e41]{Overview TOPs}
+\umlusecase[x=21, y=-15, name=e42]{Overview Speeches}
+\umlusecase[x=30, y=-15, name=e421]{Overview Comments}
+
+\umlusecase[x=13, y=-16, name=e5]{Edit Sessions}
+\umlusecase[x=21, y=-16, name=e51]{Edit TOPs}
+\umlusecase[x=21, y=-17, name=e52]{Edit Speeches}
+
+\umlusecase[x=25, y=-18.5, name=e6]{Edit Comments}
+\umlusecase[x=21, y=-19, name=e61]{Add Speech}
+
+\umlusecase[x=33, y=-18, name=e501]{Save}
+
+\umlinclude{e4}{e41}
+\umlinclude{e4}{e42}
+\umlinclude{e42}{e421}
+\umlinclude{e5}{e51}
+\umlinclude{e5}{e61}
+\umlinclude{e5}{e52}
+\umlinclude{e52}{e6}
+\umlinclude{e51}{e501}
+\umlinclude{e52}{e501}
+\umlinclude{e6}{e501}
+
+
+\umlusecase[x=21, y=-20, name=e6]{Add Sessions}
+
+\umlusecase[x=13, y=-21, name=e7]{Remove Sessions}
+
+\umlusecase[x=13, y=-22, name=e8]{Edit Speaker}
+\umlusecase[x=21, y=-21, name=e81]{Add Speaker}
+\umlusecase[x=21, y=-22, name=e82]{Remove Speaker}
+
+\umlusecase[x=13, y=-23, name=e83]{Edit Export-Template}
+
+\umlinclude{e6}{e501}
+\umlinclude{e8}{e81}
+\umlinclude{e8}{e82}
+
+\umlusecase[x=13, y=-25, name=e9]{Manage Users}
+
+\umlusecase[x=21, y=-24, name=e91]{Add Users}
+\umlusecase[x=21, y=-25, name=e92]{Edit Users}
+\umlusecase[x=21, y=-26, name=e93]{Remove Users}
+
+\umlusecase[x=13, y=-29, name=e10]{Manage Features}
+\umlusecase[x=21, y=-30, name=e101]{Add Features}
+\umlusecase[x=21, y=-28, name=e102]{Edit Features}
+\umlusecase[x=21, y=-29, name=e103]{Remove Features}
+
+
+\umlinclude{e9}{e91}
+\umlinclude{e9}{e92}
+\umlinclude{e9}{e93}
+
+
+\umlinclude{e10}{e101}
+\umlinclude{e10}{e102}
+\umlinclude{e10}{e103}
+
+
+\umlassoc{Everyone}{e0}
+\umlassoc{Everyone}{e1}
+\umlassoc{Everyone}{e2}
+\umlassoc{Everyone}{e3}
+\umlassoc{User}{e31}
+\umlassoc{User}{e32}
+\umlassoc{User}{e4}
+\umlassoc{User}{e5}
+\umlassoc{Manager}{e6}
+\umlassoc{Manager}{e7}
+\umlassoc{Manager}{e8}
+\umlassoc{Manager}{e83}
+
+\umlassoc{Admin}{e9}
+\umlassoc{Admin}{e10}
+
+\end{umlsystem}
+
+\end{tikzpicture}
+
+
+
+\end{document}
+
+
+
+
+
+

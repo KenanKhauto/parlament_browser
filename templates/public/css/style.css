@@ -1,0 +1,84 @@
+/*
+Author: Simon Schuett
+*/
+
+@import "css/buttons.css";
+@import "css/card.css";
+@import "css/footer.css";
+@import "css/form.css";
+@import "css/nav.css";
+@import "css/table.css";
+@import "css/collapselist.css";
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    background-color: #282828;
+    color: whitesmoke;
+}
+main {
+    padding-top: 50px;
+    margin-left: 200px;
+}
+section {
+    padding: 20px 0;
+    background-color: #222222;
+}
+p {
+    color: whitesmoke;
+    font-weight: lighter;
+}
+header {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #111111;
+    color: whitesmoke;
+}
+
+
+div.panel {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.container {
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.line {
+    border-top: 1px solid whitesmoke;
+    margin: 0 40px;
+}
+div.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tab {
+    animation: fade 1s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+label.annotation {
+    border-radius: 4px;
+    padding: 0 4px;
+    background-color: dodgerblue;
+    transition: filter 0.3s;
+    filter: brightness(100%);
+}
+
+label.annotation:hover {
+    filter: brightness(120%);
+}

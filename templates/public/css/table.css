@@ -1,0 +1,37 @@
+/*
+Author: Simon Schuett
+*/
+
+table.item-list thead {
+    height: 30px;
+}
+table.item-list, table.item-list tr {
+    height: 50px;
+    border-bottom: 1px solid whitesmoke;
+    border-collapse: collapse;
+}
+table.item-list tbody tr:hover {
+    background-color: #333333;
+}
+table.item-list th {
+    font-weight: lighter;
+    font-size: 14px;
+    text-align: left;
+}
+table.item-list th, table.item-list td {
+    padding: 10px;
+}
+table.item-list td:first-child {
+    border-radius: 15px 0 0 15px;
+}
+table.item-list td:last-child {
+    border-radius: 0 15px 15px 0;
+}
+table.item-list td a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+table.item-list td a:hover {
+    text-decoration: underline;
+    color: lightskyblue;
+}

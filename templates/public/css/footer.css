@@ -1,0 +1,31 @@
+/*
+Author: Simon Schuett
+*/
+
+footer {
+    background-color: #282828;
+    font-size: 14px;
+    padding-top: 20px;
+}
+footer div.footer {
+    max-width: 400px;
+}
+footer ul {
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+footer a {
+    text-decoration: none;
+    color: whitesmoke;
+    display: block;
+}
+footer p {
+    text-align: center;
+}

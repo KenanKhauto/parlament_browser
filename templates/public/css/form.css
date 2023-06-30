@@ -1,0 +1,54 @@
+/*
+Author: Simon Schuett
+*/
+
+.form-label {
+    float: left;
+    width: 30%;
+    padding-top: 12px;
+}
+.form-field {
+    float: right;
+    width: 65%;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+input[type=text], input[type=password],
+input[type=email], input[type=date],
+input[type=search], input[type=number] {
+    font-size: 16px;
+    background-color: #282828;
+    color: whitesmoke;
+    padding: 8px;
+    margin: 4px 0;
+    border: 1px solid gray;
+    border-radius: 6px;
+}
+
+input[type=text].search-field {
+    padding-right: 32px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+button.inner-search-btn {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    border: 1px solid transparent;
+    background: none
+}
+
+select {
+    -webkit-appearance: none;
+    font-size: 16px;
+    background-color: #282828;
+    color: whitesmoke;
+    padding: 8px;
+    margin: 8px;
+    border: 1px solid gray;
+}

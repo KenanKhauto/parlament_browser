@@ -1,0 +1,114 @@
+/*
+Author: Simon Schuett
+*/
+
+button, input[type=button] {
+    background-color: dodgerblue;
+    border: 0;
+    color: whitesmoke;
+    padding: 8px;
+    border-radius: 6px;
+    margin: 4px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #1564b3;
+}
+button.inverted {
+    background: none;
+    border: 2px solid dodgerblue;
+}
+button.inverted:hover {
+    background: dodgerblue;
+}
+
+input[type=button].login-btn {
+    width: 100%;
+    background-color: rgb(47, 150, 47);
+    border: 1px solid rgba(240, 240, 240, 0.2)
+}
+input[type=button].login-btn:hover {
+    background-color: rgb(53, 166, 53);
+}
+
+button.tab-btn {
+    background-color: #444444;
+    min-width: 100px;
+    width: 200px;
+    height: 35px;
+    margin-right: 10px;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: all 0.2s ease-in-out;
+}
+
+button.tab-btn:hover {
+    background-color: #555555;
+}
+
+button.tab-btn.active {
+    background-color: #777777;
+    min-width: 400px;
+    width: 400px;
+}
+
+.delete-button {
+    background-color: darkred;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.delete-button:hover {
+    background-color: firebrick;
+}
+
+button.profile-pic {
+    background-color: #444444;
+    border-radius: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+button.profile-pic:hover {
+    background-color: #333333;
+    color: lightgray;
+}
+
+button:active, input[type=button]:active,
+a.sidenav-btn:active, span.sidenav-btn:active {
+    opacity: 0.75;
+}
+
+button.btn-cancel {
+    background-color: firebrick;
+    border: 1px solid rgba(240, 240, 240, 0.2)
+}
+
+button.btn-cancel:hover {
+    background-color: crimson;
+}
+
+button.btn-done {
+    background-color: rgb(47, 150, 47);
+    border: 1px solid rgba(240, 240, 240, 0.2)
+}
+
+button.btn-done:hover {
+    background-color: rgb(53, 166, 53);
+}
+
+a.button {
+    padding: 5px 10px;
+    color: whitesmoke;
+    border-radius: 5px;
+    text-decoration: none;
+}
+a.button:hover {
+    background-color: dodgerblue;
+}
+a.button:active {
+    opacity: 0.75;
+}
