@@ -1,4 +1,4 @@
-# Parliament_Browser_3_4
+# Parliament_Browser
 
 ##### Contributors:
 Kenan Khauto, 7592047 \
