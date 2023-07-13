@@ -1,4 +1,9 @@
 # Parliament_Browser
+##### Project Satuts
+
+**Note: This project is not maintained anymore.**
+
+A new version of the same project is being developed.
 
 ##### Contributors:
 Kenan Khauto, 7592047 \
