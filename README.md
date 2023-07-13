@@ -6,11 +6,11 @@
 A new version of the same project is being developed.
 
 ##### Contributors:
-Kenan Khauto, 7592047 \
-Maximilian Chen, 7716911 \
-Simon Schütt, 7731983 \
-Stanley Mathew, 2766232 \
-Tim König, Matr.Nr. 3476673
+Kenan Khauto \
+Maximilian Chen \
+Simon Schütt \
+Stanley Mathew \
+Tim König
 
 ### About
 
