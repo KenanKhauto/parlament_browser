@@ -97,3 +97,9 @@ The webserver will launch, and you can access the interface at:
 - Simon Schütt  
 - Stanley Mathew  
 - Tim König  
+
+---
+
+## License  
+
+This project is licensed under the [MIT License](LICENSE).  
