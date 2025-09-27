@@ -21,8 +21,8 @@ The webserver will launch, and you can access the interface at:
 
 ## Screenshots  
 
-
-![Homepage](images/homepage1.png)
+### Homepage
+![Homepage](images/home_page1.png)
 
 ---
 
