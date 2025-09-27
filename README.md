@@ -1,13 +1,4 @@
-# Parliament_Browser  
-
-### Contributors  
-- Kenan Khauto  
-- Maximilian Chen  
-- Simon Schütt  
-- Stanley Mathew  
-- Tim König  
-
----
+# Parliament Browser  
 
 ## About  
 
@@ -30,7 +21,6 @@ The webserver will launch, and you can access the interface at:
 
 ## Screenshots  
 
-```markdown
 ### Homepage
 ![Homepage](images/homepage1.png)
 
@@ -66,7 +56,8 @@ The webserver will launch, and you can access the interface at:
 ![Named Entitiy Quantity Location](images/graphs_page6.png)
 ![Named Entitiy Quantity Organisation](images/graphs_page7.png)
 ![Speaker Speech Count](images/graphs_page8.png)
-```
+
+---
 
 ### System Requirements
 
@@ -76,3 +67,12 @@ The webserver will launch, and you can access the interface at:
 - A Minimum of 4 GB RAM
 - Broadband internet connection
 - 200 MB of Free Disk Space
+
+---
+
+### Contributors  
+- Kenan Khauto  
+- Maximilian Chen  
+- Simon Schütt  
+- Stanley Mathew  
+- Tim König  
