@@ -20,41 +20,62 @@ The webserver will launch, and you can access the interface at:
 ---
 
 ## Screenshots  
----
-### Homepage
+
+
 ![Homepage](images/homepage1.png)
+
+---
 
 ### Deputies View
 ![Deputies View](images/deputies_page1.png)
 
-### Deputies View
 ![Deputies View](images/deputies_page2.png)
+
+---
 
 ### Full Text Page with markdowns
 ![Full Text Page with markdowns](images/fulltext_page1.png)
 
+---
+
 ### PDF Export
 ![PDF Export](images/latex_page2.png)
+
+---
 
 ### Comment Network
 ![Comment Network](images/commentNetwork_page1.png)
 
+---
+
 ### Speech Sentiment Network
 ![Speech Sentiment Network](images/speechSentimentNetwork_page1.png)
+
+---
 
 ### Speech Topic Network
 ![Speech Topic Network](images/speechTopicNetwork_page1.png)
 
+---
+
 ### Search Engine
 ![Search Engine](images/search_page1.png)
 
+---
+
 ### Statistics
 ![Token Quantity](images/graphs_page2.png)
+
 ![POS Quantity](images/graphs_page3.png)
+
 ![Sentiment Distribution](images/graphs_page4.png)
+
 ![Named Entitiy Quantity Person](images/graphs_page5.png)
+
 ![Named Entitiy Quantity Location](images/graphs_page6.png)
+
 ![Named Entitiy Quantity Organisation](images/graphs_page7.png)
+
 ![Speaker Speech Count](images/graphs_page8.png)
 
 ---
