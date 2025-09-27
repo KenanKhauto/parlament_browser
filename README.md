@@ -1,29 +1,42 @@
-# Parliament_Browser
-## Project Satuts
+# Parliament_Browser  
 
-**Note: This project is not maintained anymore.**
+### Contributors  
+- Kenan Khauto  
+- Maximilian Chen  
+- Simon Schütt  
+- Stanley Mathew  
+- Tim König  
 
-A new version of the same project is being developed.
+---
 
-##### Contributors:
-Kenan Khauto \
-Maximilian Chen \
-Simon Schütt \
-Stanley Mathew \
-Tim König
+## About  
 
-### About
+**Parliament_Browser** is an application designed to analyze parliamentary protocols from the German Bundestag using Natural Language Processing (NLP) techniques.  
 
-An application to analyze parliament protocols from the German Bundestag, utilizing NLP for sentiment analysis. It involves reading/scraping XML files of the reports, extracting relevant data, storing it in custom data structures, and persisting it in a MongoDB database. Additionally, the application provides database query functionalities and is accessible through a Java Spark Webserver, which hosts a website with navigations and menus.
+Key features include:  
+- **Data ingestion**: Scraping and processing XML protocol files.  
+- **Custom storage**: Extracted data is structured and stored in a MongoDB database.  
+- **Web interface**: A Java Spark Webserver provides an accessible web application with navigation and menus.  
+- **Sentiment analysis**: NLP models analyze speeches, discussions, and topics, providing insights into sentiment (positive, neutral, negative).  
 
-With the integration of NLP for sentiment analysis, the application gains the ability to analyze the sentiment expressed in the parliament protocols. This involves employing NLP techniques to process the textual content of the reports and determine the sentiment associated with specific topics, discussions, or speeches. The sentiment analysis can provide insights into the emotional tone, opinions, and attitudes expressed within the protocols.
+The sentiment analysis pipeline leverages standard NLP techniques such as tokenization, part-of-speech tagging, and sentiment classification. Results are stored alongside protocol data, enabling sentiment-based queries and exploration.  
 
-By leveraging NLP libraries and techniques, such as tokenization, part-of-speech tagging, and sentiment analysis algorithms, the application can process the text and assign sentiment scores or labels to different sections or speeches. These sentiment scores can range from positive to negative or be categorized into sentiment classes such as positive, neutral, or negative.
+To start the application, simply run the `main` method (no arguments required).  
+The webserver will launch, and you can access the interface at:  
+- `http://localhost:4567`  
+- Or from another device in the same network using the server’s IP and port `4567`.  
 
-All of this is accessible via a Java Spark Webserver, which hosts a Website with navigations and menus.
+---
 
-To start the program, just run the main method without any arguments. \
-This launches the webserver and you can access the website on: `http://localhost:4567` or with any other device in the network under the server's ip address and port 4567.
+## Screenshots  
+
+```markdown
+### Homepage
+![Homepage](images/homepage.png)
+
+### Protocol View
+![Protocol View](images/protocol-view.png)
+```
 
 ### System Requirements
 
